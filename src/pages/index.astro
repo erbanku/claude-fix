@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Generator from '../components/Generator'
+
+import '../message.css'
+import 'katex/dist/katex.min.css'
+import 'highlight.js/styles/atom-one-dark.css'
+---
+
+<Layout title="Claude 2 for Science">
+  <main>
+    <Header />
+    <Generator client:load />
+    <Footer />
+  </main>
+</Layout>
+
+<script>
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  async function checkCurrentAuth() {
+    const response = await fetch('/api/auth', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const responseJson = await response.json()
+
+    if (!responseJson.passwordEnabled) return;
+
+    const password = getCookie('pass')
+
+    if (!password) {
+      window.location.href = '/password'
+      return
+    }
+
+    const authResponse = await fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        pass: password,
+      }),
+    })
+
+    const authResponseJson = await authResponse.json()
+
+    if (authResponseJson.code !== 0)
+      window.location.href = '/password'
+  }
+
+  checkCurrentAuth()
+</script>

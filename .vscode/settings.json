@@ -1,0 +1,43 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+},
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "astro", // Enable .astro
+      "typescript", // Enable .ts
+      "typescriptreact" // Enable .tsx
+],
+"files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.github": true
+},
+"hide-files.files": [],
+"workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff7e55",
+    "activityBar.background": "#ff7e55",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#00801f",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#ff7e55",
+    "statusBarItem.hoverBackground": "#ff5722",
+    "statusBarItem.remoteBackground": "#ff7e55",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#ff7e55",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#ff7e5599",
+    "titleBar.inactiveForeground": "#15202b99",
+    "statusBar.border": "#ff7e55",
+    "titleBar.border": "#ff7e55"
+},
+"peacock.color": "#ff5722"
+}
